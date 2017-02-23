@@ -20,7 +20,7 @@ The workshop is organized by the [Mass Cytometry Facility](http://www.cytometry.
 
 ### System setup
 
-If possible, please **bring your own laptop** and **install R and RStudio** before the workshop. This will ensure that you will leave the workshop with a complete data analysis system set up on your own laptop, ready to continue with your own data analysis work.
+If possible, please **bring your own laptop** and **install R and RStudio** before the workshop. This will ensure that you will leave the workshop with a complete data analysis system set up on your own laptop, ready to continue with your data analysis work.
 
 Workstations will also be available in the computer room, if this is not possible.
 
@@ -31,11 +31,18 @@ Workstations will also be available in the computer room, if this is not possibl
 If you have previously installed R and RStudio but have not updated them in a while, please re-install the latest versions. (R installations cannot be updated easily, so it is simpler to un-install and re-install using the latest version.)
 
 
-### DataCamp courses
+### DataCamp R courses
 
-Prior to the workshop, you will receive an email with a link to an introductory R course from [DataCamp](https://www.datacamp.com/). Please enroll and work through this course in your own time, before the workshop. The course teaches the basics of manipulating data in R. Completing the course will greatly speed up your learning process during the workshop, since you will have already seen the main R data concepts. These concepts are not intuitive, so it is very helpful to see them more than once.
+Prior to the workshop, you will receive an email with a link to an introductory R course from [DataCamp](https://www.datacamp.com/). Please enroll and work through this course in your own time, before the workshop. The course teaches the basics of manipulating data in R. Completing the course will greatly speed up your learning process during the workshop, since you will have already seen the main R data concepts. These concepts are generally not intuitive, so it is very helpful to see them more than once.
 
 After the workshop, you will also receive a link to an intermediate R course from DataCamp, where you can continue to learn more advanced R concepts, which are useful for performing more advanced data analyses.
+
+
+### Data Carpentry and Software Carpentry
+
+If you would like to continue to develop your R data analysis skills, we highly recommend looking at some of the free lesson materials available from [Data Carpentry](http://www.datacarpentry.org/) or [Software Carpentry](https://software-carpentry.org/) (or signing up for a future Data Carpentry or Software Carpentry workshop, if one is available near you).
+
+For example, the [Data Carpentry: R for data analysis and visualization of ecological data](http://www.datacarpentry.org/R-ecology-lesson/) lesson, or the [Software Carpentry: Programming with R](http://swcarpentry.github.io/r-novice-inflammation/) lesson, provide excellent introductions.
 
 
 
@@ -46,15 +53,15 @@ The schedule for the R data analysis sessions ("Data analysis in scripted enviro
 Overall structure: 1 day, 4x 1.5 hour blocks
 
 
-| Time          | Content                            |
-|---------------|------------------------------------|
-|  9:00 - 10:30 | Introduction                       |
-|               | *(short break)*                    |
-| 11:00 - 12:30 | R programming                      |
-|               | *(lunch break)*                    |
-| 13:30 - 15:00 | Workflows and plotting             |
-|               | *(short break)*                    |
-| 15:30 - 17:00 | Workflows and plotting (continued) |
+| Time          | Content                                  |
+|---------------|------------------------------------------|
+|  9:00 - 10:30 | Introduction                             |
+|               | *(short break)*                          |
+| 11:00 - 12:30 | R programming                            |
+|               | *(lunch break)*                          |
+| 13:30 - 15:00 | CyTOF workflows and plotting             |
+|               | *(short break)*                          |
+| 15:30 - 17:00 | CyTOF workflows and plotting (continued) |
 
 
 More details for each block, including interactive R code scripts, will be posted to this website before the workshop.
