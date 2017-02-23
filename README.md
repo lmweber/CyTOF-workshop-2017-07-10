@@ -1,6 +1,6 @@
 # Information and teaching materials for CyTOF workshop
 
-This repository contains information and teaching materials for the R data analysis sessions in our CyTOF workshop, 13--15 March 2017, University of Zurich, Switzerland.
+This repository contains information and teaching materials for the R data analysis sessions in our CyTOF workshop, 13-15 March 2017, University of Zurich, Switzerland.
 
 
 
@@ -10,7 +10,7 @@ The workshop is organized by the [Mass Cytometry Facility](http://www.cytometry.
 
 **Location:** The R data analysis sessions will be held in room [TBD], building [TBD], Irchel campus, University of Zurich. A map of the UZH Irchel campus showing the location of building [TBD] is available [here](Irchel_campus_map.png).
 
-**Schedule:** The overall schedule for the workshop is available on the [Mass Cytometry Facility website](http://www.cytometry.uzh.ch/en/mcf/training.html). The R data analysis sessions ("Data analysis in scripted environment") will be repeated on days 1 and 2 for each group of 4--5 participants.
+**Schedule:** The overall schedule for the workshop is available on the [Mass Cytometry Facility website](http://www.cytometry.uzh.ch/en/mcf/training.html). The R data analysis sessions ("Data analysis in scripted environment") will be repeated on days 1 and 2 for each group of 4-5 participants.
 
 **Instructors:** Instructors for the R data analysis sessions are [Mark Robinson](http://www.imls.uzh.ch/en/research/robinson.html) and [Lukas Weber](https://github.com/lmweber).
 
@@ -46,15 +46,15 @@ The schedule for the R data analysis sessions ("Data analysis in scripted enviro
 Overall structure: 1 day, 4x 1.5 hour blocks
 
 
-| Time           | Content                            |
-|----------------|------------------------------------|
-|  9:00 -- 10:30 | Introduction                       |
-|                | *(short break)*                    |
-| 11:00 -- 12:30 | R programming                      |
-|                | *(lunch break)*                    |
-| 13:30 -- 15:00 | Workflows and plotting             |
-|                | *(short break)*                    |
-| 15:30 -- 17:00 | Workflows and plotting (continued) |
+| Time          | Content                            |
+|---------------|------------------------------------|
+|  9:00 - 10:30 | Introduction                       |
+|               | *(short break)*                    |
+| 11:00 - 12:30 | R programming                      |
+|               | *(lunch break)*                    |
+| 13:30 - 15:00 | Workflows and plotting             |
+|               | *(short break)*                    |
+| 15:30 - 17:00 | Workflows and plotting (continued) |
 
 
 More details for each block, including interactive R code scripts, will be posted to this website before the workshop.
