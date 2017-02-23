@@ -33,7 +33,7 @@ If you have previously installed R and RStudio but have not updated them in a wh
 
 ### DataCamp R courses
 
-Prior to the workshop, you will receive an email with a link to an introductory R course from [DataCamp](https://www.datacamp.com/). Please enroll and work through this course in your own time, before the workshop. The course teaches the basics of manipulating data in R. Completing the course will greatly speed up your learning process during the workshop, since you will have already seen the main R data concepts. These concepts are generally not intuitive, so it is very helpful to see them more than once.
+Prior to the workshop, you will receive an email with a link to an introductory R course from [DataCamp](https://www.datacamp.com/). Please enroll and work through this course in your own time, before the workshop. The course teaches the basics of manipulating data in R. Completing the course will greatly speed up your learning process during the workshop, since you will have already seen several of the main R data concepts. These concepts are generally not intuitive, so it is very helpful to see them more than once.
 
 After the workshop, you will also receive a link to an intermediate R course from DataCamp, where you can continue to learn more advanced R concepts, which are useful for performing more advanced data analyses.
 
