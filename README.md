@@ -53,15 +53,15 @@ The schedule for the R data analysis sessions ("Data analysis in scripted enviro
 Overall structure: 1 day, 4x 1.5 hour blocks
 
 
-| Time          | Content                                  |
-|---------------|------------------------------------------|
-|  9:00 - 10:30 | Introduction                             |
-|               | *(short break)*                          |
-| 11:00 - 12:30 | R programming                            |
-|               | *(lunch break)*                          |
-| 13:30 - 15:00 | CyTOF workflows and plotting             |
-|               | *(short break)*                          |
-| 15:30 - 17:00 | CyTOF workflows and plotting (continued) |
+| Time          | Content                                       |
+|---------------|-----------------------------------------------|
+|  9:00 - 10:30 | Introduction                                  |
+|               | *(short break)*                               |
+| 11:00 - 12:30 | R programming                                 |
+|               | *(lunch break)*                               |
+| 13:30 - 15:00 | CyTOF workflows and plotting in R             |
+|               | *(short break)*                               |
+| 15:30 - 17:00 | CyTOF workflows and plotting in R (continued) |
 
 
 More details for each block, including interactive R code scripts, will be posted to this website before the workshop.
