@@ -75,6 +75,16 @@ Note that this Etherpad will expire after a few weeks, since we are using a free
 
 
 
+## Data files
+
+We will use the following files for the interactive exercises during the sessions. Please download them and save them in a local directory on your computer.
+
+- File 1 (.csv metadata spreadsheet)
+
+- File 2 (.zip file containing .fcs files for BCR-XL data set)
+
+
+
 ## R code scripts
 
 We will provide interactive code scripts from the sessions (in the form of an "R Notebook" or "R Markdown" file) at the end of the workshop. These scripts contain all the main commands demonstrated during the sessions.
