@@ -64,7 +64,20 @@ Overall structure: 1 day, 4x 1.5 hour blocks
 | 15:30 - 17:00 | CyTOF workflows and plotting in R (continued) |
 
 
-More details for each block, including interactive R code scripts, will be posted to this website before the workshop.
+
+## Etherpad
+
+We will use an Etherpad for discussions and questions during the workshop. You can add questions or comments for the instructors or other learners at any time during the workshop.
+
+The Etherpad is available here: [https://beta.etherpad.org/p/VaaeWno43s](https://beta.etherpad.org/p/VaaeWno43s)
+
+Note that this Etherpad will expire after a few weeks, since we are using a free public instance, so you should save notes that you would like to keep in a local file. We will also provide interactive code scripts containing the main commands from the sessions (see below).
+
+
+
+## R Notebooks
+
+We will provide interactive code scripts from the sessions (in the form of an "R Notebook" or "R Markdown" file) at the end of the workshop. These scripts contain all the main commands demonstrated during the sessions.
 
 
 
@@ -72,7 +85,7 @@ More details for each block, including interactive R code scripts, will be poste
 
 Participation in this workshop assumes acceptance of our code of conduct.
 
-In short: please be professional and respectful at all times. We want this to be a welcoming learning environment for all. If there are any problems, please let one of the instructors know.
+In short: please be professional and respectful towards others at all times. We want this to be a welcoming learning environment for all. If there are any problems, please let one of the instructors know.
 
 For a longer version, we refer to [Laurent Gatto's lab code of conduct](https://lgatto.github.io/cpu-coc/) (Computational Proteomics Unit, University of Cambridge, UK).
 
