@@ -83,7 +83,7 @@ We will provide interactive code scripts from the sessions (in the form of an "R
 
 ## Data files
 
-We will use the following files for the interactive exercises during the sessions. Please download them and save them in a local directory on your computer.
+We will use the following data files for the interactive exercises during the sessions. Please download them and save them in a local directory on your computer.
 
 - File 1 (.csv metadata spreadsheet)
 
