@@ -71,11 +71,11 @@ We will use an Etherpad for discussions and questions during the workshop. You c
 
 The Etherpad is available here: [https://beta.etherpad.org/p/VaaeWno43s](https://beta.etherpad.org/p/VaaeWno43s)
 
-Note that this Etherpad will expire after a few weeks, since we are using a free public instance, so you should save notes that you would like to keep in a local file. We will also provide interactive code scripts containing the main commands from the sessions (see below).
+Note that this Etherpad will expire after a few weeks, since we are using a free public instance, so you should save any notes that you would like to keep in a local file. We will also provide interactive code scripts containing the main commands from the sessions (see below).
 
 
 
-## R Notebooks
+## R code scripts
 
 We will provide interactive code scripts from the sessions (in the form of an "R Notebook" or "R Markdown" file) at the end of the workshop. These scripts contain all the main commands demonstrated during the sessions.
 
