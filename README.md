@@ -85,7 +85,7 @@ We will provide interactive code scripts from the sessions (in the form of an "R
 
 We will use the following data files for the interactive exercises during the sessions. Please download them and save them in a local directory on your computer.
 
-The .fcs files are sourced from a data set consisting of peripheral blood mononuclear cells (PBMCs) stimulated with B-cell receptor / Fc receptor cross-linker (BCR-XL) and unstimulated reference cells (16 samples from 8 healthy donors; 8 stimulated vs. 8 unstimulated), from a larger CyTOF experiment comparing a number of stimulation conditions. The data set was initially created and published by [Bodenmiller et al. (2012)](Nature Biotechnology; https://www.ncbi.nlm.nih.gov/pubmed/22902532), and re-analyzed by [Bruggner et al. (2014)](PNAS; https://www.ncbi.nlm.nih.gov/pubmed/24979804).
+The .fcs files are sourced from a data set consisting of peripheral blood mononuclear cells (PBMCs) stimulated with B-cell receptor / Fc receptor cross-linker (BCR-XL) and unstimulated reference cells (16 samples from 8 healthy donors; 8 stimulated vs. 8 unstimulated), from a larger CyTOF experiment comparing a number of stimulation conditions. The data set was initially created and published by [Bodenmiller et al. (2012), *Nature Biotechnology*](https://www.ncbi.nlm.nih.gov/pubmed/22902532), and re-analyzed by [Bruggner et al. (2014), *PNAS*](https://www.ncbi.nlm.nih.gov/pubmed/24979804).
 
 - [example.fcs](data/example.fcs)
 
