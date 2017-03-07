@@ -77,7 +77,7 @@ Note that this Etherpad will expire after a few weeks, since we are using a free
 
 ## R code scripts
 
-We will provide interactive code scripts from the sessions (in the form of an "R Notebook" or "R Markdown" file) at the end of the workshop, as a reference. These scripts contain all the main commands demonstrated during the sessions.
+At the end of the workshop, we will provide interactive R code scripts from the examples shown during each session, as a reference. These scripts contain all the main commands shown during the demonstrations.
 
 
 
