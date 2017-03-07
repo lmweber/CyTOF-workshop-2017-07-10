@@ -91,7 +91,7 @@ The .fcs files are sourced from a data set consisting of peripheral blood mononu
 
 - [metadata.xlsx](data/metadata.xlsx)
 
-- [BodenmillerEtAl2012_BCRXL.zip](data/BodenmillerEtAl2012_BCRXL.zip)
+- [BodenmillerEtAl2012_BCRXL.zip](data/BodenmillerEtAl2012_BCRXL.zip) (21.6 MB)
 
 
 
