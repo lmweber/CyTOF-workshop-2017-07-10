@@ -88,7 +88,7 @@ The CyTOF workflow script `CyTOF_workflow_master_script.R` also contains additio
 - [scripts](scripts/)
 - [slides](slides/)
 
-An additional example demonstrating FlowSOM clustering and Rtsne for visualization is available in the [FlowSOM-Rtsne-example](https://github.com/lmweber/FlowSOM-Rtsne-example) repository.
+An additional example demonstrating FlowSOM clustering and Rtsne for visualization is also available in the [FlowSOM-Rtsne-example](https://github.com/lmweber/FlowSOM-Rtsne-example) repository.
 
 
 
