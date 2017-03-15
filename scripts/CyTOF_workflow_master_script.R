@@ -16,7 +16,7 @@ biocLite(c("readxl", "flowCore", "ggplot2", "Rtsne",
 #------------------------------------------------------------
 # load packages, set working directory
 #------------------------------------------------------------
-setwd("~/projects/cytof/teaching")
+#setwd("~/projects/cytof/teaching")
 library(readxl)
 library(flowCore)  
 library(ggplot2)
@@ -38,7 +38,8 @@ class(md)
 #------------------------------------------------------------
 # read in flow/mass cytometry data FCS files
 #------------------------------------------------------------
-fs  <- read.flowSet(files=md$filename, path = "data/BodenmillerEtAl2012_BCRXL")
+fs  <- read.flowSet(files=md$filename, path = "data/BodenmillerEtAl2012_BCRXL", 
+                    transformation = FALSE)
 fs
 
 
