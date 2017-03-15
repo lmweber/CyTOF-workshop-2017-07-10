@@ -1,0 +1,723 @@
+setwd("~/projects/cytof_course_uzh/")
+list.files()
+
+install.packages("readxl")
+
+# 
+library(readxl)
+md <- read_excel("metadata.xlsx")
+class(md)
+View(md)
+
+
+library(flowCore)
+?read.flowSet
+md["filename"]
+md[["filename"]]
+md$filename
+fs <- read.flowSet(files = md$filename,
+                   path = "BodenmillerEtAl2012_BCRXL/")
+
+class(fs)
+sampleNames(fs)
+colnames(fs)
+fsApply(fs, nrow)
+ff <- fs[[1]]
+class(ff)
+nrow(ff)
+?nrow
+?`nrow,flowFrame-method`
+
+md$ncells <- fsApply(fs, nrow)
+View(md)
+
+library(ggplot2)
+ggplot(md, aes(x=shortname,y=ncells,colour=condition)) +
+  geom_bar(stat="identity")
+
+ggplot(md, aes(x=shortname,y=ncells,fill=condition)) +
+  geom_bar(stat="identity") +
+  theme(axis.text.x = element_text(angle=90, hjust=1, vjust=.5))
+
+d <- fsApply(fs, exprs)
+class(d)
+dim(d)
+sum(md$ncells)
+
+dtrans <- asinh(d/5)
+class(dtrans)
+dim(dtrans)
+marker_cols <- c(3,4,9,11,12,14,21,29,31,33)
+colnames(dtrans)[marker_cols]
+
+samp <- rep(md$shortname, md$ncells)
+length(samp)
+head(samp)
+tail(samp)
+
+df <- data.frame(samp, dtrans[,marker_cols])
+dim(df)
+class(df)
+
+library(dplyr)
+nrow(df)
+df %>% nrow
+
+length(colnames(df))
+df %>% colnames  # colnames(df)
+df %>% colnames %>% length
+
+df_medians <- df %>% 
+  group_by(samp) %>%
+  summarize_each(funs(median))
+class(df_medians)
+dim(df_medians)
+View(df_medians)
+
+library(pheatmap)
+df_medians1 <- data.frame(df_medians[,-1],
+                          row.names=df_medians$samp)
+View(df_medians1)
+
+pheatmap(df_medians1)
+
+list.files()
+
+install.packages("readxl")
+
+# 
+library(readxl)
+md <- read_excel("metadata.xlsx")
+class(md)
+View(md)
+
+
+library(flowCore)
+?read.flowSet
+md["filename"]
+md[["filename"]]
+md$filename
+fs <- read.flowSet(files = md$filename,
+                   path = "BodenmillerEtAl2012_BCRXL/")
+                   
+                   
+
+
+Some more details about data frames in R -- nice materials from Data Carpentry
+http://www.datacarpentry.org/R-ecology-lesson/02-starting-with-data.html
+
+http://www.datacarpentry.org/R-ecology-lesson/04-visualization-ggplot2.html
+ggplot book: http://ggplot2.org/book/
+
+
+SVG graphics from R:
+http://stackoverflow.com/questions/12226822/how-to-save-a-plot-made-with-ggplot2-as-svg
+install.packages("svglite")
+
+require("ggplot2")
+#some sample data
+head(diamonds) 
+#to see actually what will be plotted and compare 
+qplot(clarity, data=diamonds, fill=cut, geom="bar")
+#save the plot in a variable image to be able to export to svg
+image=qplot(clarity, data=diamonds, fill=cut, geom="bar")
+#This actually save the plot in a image
+ggsave(file="test.svg", plot=image, width=10, height=8)
+
+
+
+# Installing packages that are needed for the workflow example
+source("http://bioconductor.org/biocLite.R")
+biocLite(c("readxl", "flowCore", "ggplot2", "Rtsne", 
+           "dplyr", "FlowSOM","pheatmap", "reshape2"))
+
+
+
+https://github.com/lmweber/CyTOF-workshop-2017-03-13
+
+/ ~ [ ] { }
+
+
+Here, we will share notes throughout the day ..
+
+
+Day 2: Data analysis sessions
+First exercise:
+(1) What would you like to get out of today's data analysis sessionU
+I hope to be able to use R when doing CyTOF data analysis  (tSNE, FlowSOM, GGplot)
+Get to know R for analyzing my CyTOF data
+Want to get the best from my cytof data!
+
+
+I hope I will learn not only to type the commands but also understand what exaclty I am doing with my data and how I can look at them 
+how to start with cytof data, do I need to tranform or normalized or whatever needs to be done to start working with them 
+Understand better writing codes in R
+
+Just to understand how to navigate R and afterwards writte code
+
+
+
+source("http://bioconductor.org/biocLite.R")
+biocLite(c("readxl", "flowCore", "ggplot2", "Rtsne", 
+           "dplyr", "FlowSOM","pheatmap", "reshape2"))
+
+
+
+Be able to read and understand R code. Run basic code and do some basic troble shooting. Have fun!
+I want to know the basics to be able to analyze (most common analyses) CYTOF (and flow cytometry) data.
+
+(2) Examples of types of data analyses (in R) that you would like to learn about
+CyTOF data
+vSNE and ggplot and others to visualize my CyTOF data
+Just wrote this above, tSNE, GGplot, heatmaps2, FlowSOM
+
+CyTOF data and also statistics by not using Prism.
+
+Ditto
+
+
+
+
+
+# -----------------------------
+
+
+# Example: data import / export
+# -----------------------------
+
+
+# Working directory
+# -----------------
+
+# In Files panel (bottom-right): Click on "..."
+# and navigate to the location where you saved
+# data files.
+
+# Then: Set your working directory by clicking 
+# on "More" and "Set as working directory"
+
+# Working directory is now shown next to "Console" 
+# heading in bottom-left panel
+
+
+# Check working directory
+getwd()
+
+# Set working directory
+setwd("/Users/lukas/Dropbox/teaching/CyTOF_workshops/CyTOF_workshop_March_2017/lesson_notes/day_2")
+
+# Show files in current working directory
+list.files()
+
+
+# Getting help
+# ------------
+
+?list.files
+
+help(list.files)
+
+list.files(path = "data")
+
+# Outside R: Google, Stack Overflow
+
+list.files("data", 
+           pattern = "\\.fcs$", 
+           full.names = TRUE)
+
+
+
+# Saving a file
+# -------------
+
+# create matrix
+dat <- matrix(1:12, nrow = 3, ncol = 4)
+
+?matrix
+
+dat
+
+View(dat)  # show matrix in new tab
+
+
+# save as .txt file
+?write.table
+
+filename <- "my_matrix.txt"
+filename
+
+write.table(dat, file = filename)
+
+write.table(dat, 
+            file = filename, 
+            sep = "\t", 
+            row.names = TRUE)
+
+?write.csv
+
+
+# Loading / reading in a file
+# ---------------------------
+
+?read.table
+
+filename <- "my_matrix.txt"
+
+dat2 <- read.table(filename)
+
+dat2 <- read.table(filename, 
+                   header = TRUE)
+
+dat2
+
+?read.table
+?read.csv
+
+?str
+
+# Example: data import / export
+# -----------------------------
+
+
+# Working directory
+# -----------------
+
+# In Files panel (bottom-right): Click on "..."
+# and navigate to the location where you saved
+# data files.
+
+# Then: Set your working directory by clicking 
+# on "More" and "Set as working directory"
+
+# Working directory is now shown next to "Console" 
+# heading in bottom-left panel
+
+
+# Check working directory
+getwd()
+
+# Set working directory
+setwd("/Users/lukas/Dropbox/teaching/CyTOF_workshops/CyTOF_workshop_March_2017/lesson_notes/day_2")
+
+# Show files in current working directory
+list.files()
+
+
+# Getting help
+# ------------
+
+?list.files
+
+help(list.files)
+
+list.files(path = "data")
+
+# Outside R: Google, Stack Overflow
+
+list.files("data", 
+           pattern = "\\.fcs$", 
+           full.names = TRUE)
+
+
+
+# Saving a file
+# -------------
+
+# create matrix
+dat <- matrix(1:12, nrow = 3, ncol = 4)
+
+?matrix
+
+dat
+
+View(dat)  # show matrix in new tab
+
+
+# save as .txt file
+?write.table
+
+filename <- "my_matrix.txt"
+filename
+
+write.table(dat, file = filename)
+
+write.table(dat, 
+            file = filename, 
+            sep = "\t", 
+            row.names = TRUE)
+
+?write.csv
+
+
+# Loading / reading in a file
+# ---------------------------
+
+?read.table
+
+filename <- "my_matrix.txt"
+
+dat2 <- read.table(filename)
+
+dat2 <- read.table(filename, 
+                   header = TRUE)
+
+dat2
+
+?read.table
+?read.csv
+
+?str
+
+str(dat2)
+
+
+
+
+
+# Installing packages
+# -------------------
+
+
+# Install package from CRAN
+
+install.packages("ggplot2")
+
+
+# Install package from Bioconductor
+
+source("https://bioconductor.org/biocLite.R")
+
+?source
+
+biocLite()
+
+biocLite(c("readxl", "flowCore", "ggplot2", "Rtsne", 
+           "dplyr", "FlowSOM","pheatmap", "reshape2"))
+
+
+# Load packages
+
+library(ggplot2)
+
+library(flowCore)
+
+
+
+
+# Data import/export using .fcs files
+# -----------------------------------
+
+# check working directory
+getwd()
+
+list.files()
+
+list.files("data")
+
+
+# load data from .fcs file
+
+library(flowCore)
+
+?read.FCS
+
+list.files("data")
+
+filename <- list.files("data", 
+                       pattern = "fcs", 
+                       full.names = TRUE)
+filename
+
+# load data
+dat <- read.FCS(filename)
+
+class(dat)
+str(dat)
+
+
+# read.FCS options
+dat <- read.FCS(filename, 
+                transformation = FALSE, 
+                truncate_max_range = FALSE)
+
+?read.FCS
+
+
+# show some info about data object
+dat
+
+str(dat)
+
+class(dat)
+?class
+
+# extract expression values
+?exprs
+
+
+exprs(dat)
+
+?head
+head(exprs(dat))
+
+
+# Save new .fcs file
+# ------------------
+
+?write.FCS
+
+fn_new <- "my_fcs_file.fcs"
+fn_new
+
+write.FCS(dat, filename = fn_new)
+
+fn_new2 <- "data/my_fcs_file.fcs"
+write.FCS(dat, filename = fn_new2)
+
+
+
+
+# Session 2: R Programming
+# ------------------------
+
+aaa <- 1:10
+aaa
+
+my_vector <- 1:10
+my_vector
+
+my_vector2 <- c(1, 5, 2.3, 6)
+my_vector2
+
+length(my_vector2)
+?length
+
+class(my_vector2)
+str(my_vector2)
+
+# Data types (vectors):
+# - "numeric"
+# - "character"
+# - "logical"
+# - "integer"
+
+my_vector3 <- c("dog", "dog", "cat", "cat")
+my_vector3
+class(my_vector3)
+
+
+# Subsetting vectors
+# ------------------
+
+my_vector3
+my_vector3[3]
+my_vector3[2:3]
+
+
+# Missing values
+# --------------
+
+my_vector4 <- c(1, 2, 5, NA, 3)
+my_vector4
+
+mean(my_vector4)
+
+mean(my_vector4, na.rm = TRUE)
+?mean
+
+
+# Data structures in R
+# --------------------
+
+# Data structures:
+# - vectors
+# - lists
+# - matrices
+# - data frames
+# - factors
+
+my_matrix <- matrix(1:12, nrow = 3, ncol = 4)
+my_matrix
+
+?class
+class(my_matrix)
+
+dim(my_matrix)  # dimension
+
+str(my_matrix)
+
+
+# Create a data frame
+
+my_df <- as.data.frame(my_matrix)
+my_df
+str(my_df)
+
+# alternatively:
+aaa <- c(1, 2, 3, 5)
+bbb <- c(4, 4, 4, 4)
+animals <- c("cat", "cat", "dog", "dog")
+
+my_df2 <- data.frame(aaa, bbb, animals)
+my_df2
+str(my_df2)
+
+my_df3 <- data.frame(aaa, bbb, animals, stringsAsFactors = FALSE)
+str(my_df3)
+
+my_df3
+
+# column names (data frames)
+colnames(my_df3)
+
+# subsetting
+my_df3[2, 3]  # subset one cell
+my_df3[2, ]   # subset row 2
+my_df3[, 2]   # subset column 2
+
+my_df3[, 3]
+
+# subsetting columns with "$" notation
+my_df3
+my_df3$animals  # subset column "animals"
+my_df3$aaa
+
+# add new columns
+my_df3$more_animals <- c("mouse", "mouse", "rat", "rat")
+my_df3
+
+
+# Lists vs. vectors
+
+my_vector <- c(1, 2, 3, 4, 5)
+my_vector
+str(my_vector)
+
+my_list <- list(1, 2.5, "cat", "dog", TRUE)
+my_list
+str(my_list)
+
+length(my_vector)
+length(my_list)
+
+
+
+
+# Plotting
+# --------
+
+library(flowCore)
+library(ggplot2)
+
+
+# Load data
+
+filename <- "data/example.fcs"
+dat <- read.FCS(filename, 
+                transformation = FALSE, 
+                truncate_max_range = FALSE)
+dat <- exprs(dat)
+
+dim(dat)
+head(dat)
+
+
+# Transform data
+
+?asinh
+cofactor <- 5
+dat <- asinh(dat / cofactor)
+
+summary(dat)
+?summary
+
+
+# Create simple plot with "base plotting"
+
+?plot
+
+my_vector <- 1:10
+plot(my_vector)
+
+plot(1:20)
+
+
+# Create plot using "ggplot2"
+# ---------------------------
+
+class(dat)
+
+# ggplot2 requires data frame
+dat <- as.data.frame(dat)
+class(dat)
+head(dat)
+
+# subset columns
+colnames(dat)
+
+df_plot <- dat[, c(3, 9)]
+head(df_plot)
+
+colnames(df_plot) <- c("CD3", "CD4")
+head(df_plot)
+
+
+# Create plot with ggplot2
+
+ggplot(df_plot, aes(x = CD3, y = CD4)) + 
+  geom_point()
+
+
+# Various plotting options
+
+ggplot(df_plot, aes(x = CD3, y = CD4)) + 
+  geom_point(color = "blue")
+
+ggplot(df_plot, aes(x = CD3, y = CD4)) + 
+  geom_point(color = "blue", alpha = 0.25)
+
+ggplot(df_plot, aes(x = CD3, y = CD4)) + 
+  geom_point(color = "blue", alpha = 0.25, size = 0.5)
+
+ggplot(df_plot, aes(x = CD3, y = CD4)) + 
+  geom_point(color = "blue", alpha = 0.25) + 
+  theme_bw()
+
+ggplot(df_plot, aes(x = CD3, y = CD4)) + 
+  geom_point(color = "blue", alpha = 0.25) + 
+  xlab("CD3 expression (transformed)") + 
+  ylab("CD4 expression (transformed)") + 
+  ggtitle("CD4 vs. CD3") + 
+  theme_bw()
+
+ggplot(df_plot, aes(x = CD3, y = CD4)) + 
+  geom_point(color = "blue", alpha = 0.25) + 
+  xlim(c(-1.75, 5)) + 
+  ylim(c(-1.25, 5.75)) + 
+  xlab("CD3 expression (transformed)") + 
+  ylab("CD4 expression (transformed)") + 
+  ggtitle("CD4 vs. CD3") + 
+  theme_bw()
+
+
+# Add a second "geom"
+ggplot(df_plot, aes(x = CD3, y = CD4)) + 
+  geom_point(color = "blue", alpha = 0.25) + 
+  geom_density2d(color = "gray30") + 
+  xlim(c(-1.75, 5)) + 
+  ylim(c(-1.25, 5.75)) + 
+  xlab("CD3 expression (transformed)") + 
+  ylab("CD4 expression (transformed)") + 
+  ggtitle("CD4 vs. CD3") + 
+  theme_bw()
+
+
+# Save plot
+
+ggsave("my_plot.pdf", width = 7, height = 7)
+
+ggsave("my_plot.png", width = 7, height = 7)
+
+#install.packages("svglite")  # if required
+ggsave("my_plot.svg", width = 7, height = 7)
+

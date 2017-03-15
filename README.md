@@ -71,19 +71,28 @@ We will use an Etherpad for discussions and questions during the workshop. You c
 
 The Etherpad is available here: [https://beta.etherpad.org/p/VaaeWno43s](https://beta.etherpad.org/p/VaaeWno43s)
 
-Note that this Etherpad will expire after a few weeks, since we are using a free public instance, so you should save any notes that you would like to keep in a local file. We will also provide interactive code scripts containing the main commands from the sessions (see below).
+Note that this Etherpad will expire after a few weeks, since we are using a free public instance.
+
+Copies of the Etherpad notes from both days are saved in the following folder:
+
+- [Etherpad](Etherpad/)
 
 
 
-## R code scripts
+## R code scripts and slides
 
-At the end of the workshop, we will provide interactive R code scripts from the examples shown during each session, as a reference. These scripts contain all the main commands shown during the demonstrations.
+At the end of the workshop, we will provide the interactive R code scripts from the examples shown during each session, as well as the presentation slides. The R scripts contain all the main commands shown during the demonstrations, including additional comments to explain each step.
+
+The CyTOF workflow script `CyTOF_workflow_master_script.R` also contains additional steps that were not shown during the demonstrations, e.g. FlowSOM clustering, t-SNE plots, differential analysis, and more advanced `ggplot2` plots.
+
+- [scripts](scripts/)
+- [slides](slides/)
 
 
 
 ## Data files
 
-We will use the following data files for the interactive exercises during the sessions. Please download them and save them in a local directory on your computer.
+We will use the following data files for the interactive exercises during the sessions. Please download them and save them in a local directory on your computer (click on them, then click the "Download" button on the next page).
 
 The .fcs files are sourced from a data set consisting of peripheral blood mononuclear cells (PBMCs) stimulated with B-cell receptor / Fc receptor cross-linker (BCR-XL) and unstimulated reference cells (16 samples from 8 healthy donors; 8 stimulated vs. 8 unstimulated), from a larger CyTOF experiment comparing a number of stimulation conditions. The data set was initially created and published by [Bodenmiller et al. (2012), *Nature Biotechnology*](https://www.ncbi.nlm.nih.gov/pubmed/22902532), and re-analyzed by [Bruggner et al. (2014), *PNAS*](https://www.ncbi.nlm.nih.gov/pubmed/24979804).
 

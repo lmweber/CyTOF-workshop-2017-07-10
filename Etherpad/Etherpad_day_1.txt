@@ -1,0 +1,555 @@
+From Terminal:
+sudo apt-get install libxml2-dev
+
+Links:
+    
+    Password for Linux machines: 1wnft3p@UZH
+
+https://github.com/lmweber/CyTOF-workshop-2017-03-13
+https://cran.r-project.org/
+https://www.rstudio.com/
+
+source("https://bioconductor.org/biocLite.R")
+
+Some nice materials on data.frames in R from Data Carpentry:
+    http://www.datacarpentry.org/R-ecology-lesson/02-starting-with-data.html
+    
+Free online ggplot2 book (from Hadley Wickham): http://ggplot2.org/book/
+Some nice condensed materials from Data Carpentry:
+    http://www.datacarpentry.org/R-ecology-lesson/04-visualization-ggplot2.html
+
+
+# Some packages needed for the "master script" session
+source("http://bioconductor.org/biocLite.R")
+biocLite(c("readxl", "flowCore", "ggplot2", "Rtsne", 
+           "dplyr", "FlowSOM","pheatmap", "reshape2"))
+
+##plot challenge
+ggplot(md, aes(x = shortname, y = ncells)) +
+  geom_bar(stat = "identity")
+  
+  ##pipe
+  df %>% colnames %>% length
+
+
+Day 1: Data analysis sessions
+First exercise:
+(1) What would you like to get out of today's data analysis session
+Be able to do simple analysis in R, and maybe also to analyze some simple CyTOF data
+HOw to analyse data from a CyTOF experiment . Eg: Treated vs untreated samples. 
+Be able to generate "simple" analysis in R in a similar way as we do in Cytobank.
+Get an overview and familiarize with standard workflows and user requirements in high parameter flow cytometry data analysis
+To be a bit more familiar with R, data analysis principles and concepts
+
+(2) Examples of types of data analyses (in R) that you would like to learn about
+CyTOF data
+FInding trends or relationships (ckustering)  in within my expression data generated. 
+dimensionality reduction and clustering methods
+Cluster analysis, progression analysis 
+
+~
+\
+
+
+
+
+###########
+# Session 1 #
+###########
+
+# Example 1: Getting data into and out of R
+# ---------------------------------------
+
+# This is a comment.
+
+# How to set your working directory:
+# Navigate to the directory where your files 
+# are saved, by clicking on the three dots 
+# (...) in the Files pane (bottom-right panel).
+# Then click "More", and "Set as working 
+# directory". Now your current R session is 
+# running in this directory.
+
+# Check your working directory
+getwd()
+
+setwd("~/Desktop")
+
+list.files()
+
+
+# Getting help
+# ------------
+
+?list.files
+
+help(list.files)
+
+
+# Saving a file
+# -------------
+
+dat <- matrix(1:12, nrow = 3, ncol = 4)
+
+dat
+
+?matrix
+
+# Save matrix as .txt file
+?write.table
+
+write.table(dat, file = "my_matrix.txt", sep = "\t")
+
+
+# Loading / reading in data from file
+# -----------------------------------
+
+# Made some changes in .txt file and read it back in
+
+dat2 <- read.table("my_matrix.txt", header = TRUE)
+
+dat2
+
+?read.table
+
+
+
+# Example 2: Bioconductor
+
+# Installing packages from Bioconductor
+# -------------------------------------
+
+# Installing packages
+
+?install.packages
+
+# Run Bioconductor installation script
+
+source("https://bioconductor.org/biocLite.R")
+
+?biocLite
+
+biocLite()
+
+biocLite("flowCore")
+
+# Load package
+library(flowCore)
+
+?flowCore
+
+
+
+# Example 3: .fcs files
+
+# Loading data from .fcs file
+# ---------------------------
+
+getwd()
+
+# find .fcs file
+list.files()
+
+# Load .fcs file
+library(flowCore)
+?read.FCS
+
+filename <- "example.fcs"
+filename
+
+dat <- read.FCS(filename, 
+                transformation = FALSE, 
+                truncate_max_range = FALSE)
+
+dat
+
+?exprs
+
+exprs(dat)
+
+head(exprs(dat))
+
+?write.FCS
+
+# write FCS file
+filename_new <- "my_fcs_new.fcs"
+write.FCS(dat, filename = filename_new)
+
+
+
+###########
+# Session 2 #
+###########
+
+# Example: data types
+# -------------------
+
+my_vector <- 1:10
+my_vector
+
+class(my_vector)
+str(my_vector)
+
+my_vector2 <- c(1, 2, 5, 10, 5.5)
+my_vector2
+
+str(my_vector2)
+
+my_string <- c("a", "b", "c")
+str(my_string)
+
+# Subsetting vectors
+my_vector2
+my_vector2[4]
+
+# Missing values
+my_vector3 <- c(1, 2, 5, NA, 5)
+my_vector3
+
+mean(my_vector3, na.rm = TRUE)
+?mean
+
+
+# Data structures in R
+# --------------------
+
+# - vectors
+# - matrices
+# - data frames
+# - lists
+# - (factors)
+
+my_matrix <- matrix(1:12, nrow = 3, ncol = 4)
+my_matrix
+
+class(my_matrix)
+str(my_matrix)
+
+# data frames
+my_df <- as.data.frame(my_matrix)
+my_df
+
+?data.frame
+
+str(my_df)
+
+# alternatively
+aaa <- c(1, 2, 5, 4)
+bbb <- c(1.1, 2.5, 5.5, 4.44)
+animals <- c("cat", "cat", "dog", "dog")
+
+my_df2 <- data.frame(aaa, bbb, animals)
+my_df2
+str(my_df2)
+
+my_df3 <- data.frame(aaa, bbb, animals, 
+                     stringsAsFactors = FALSE)
+str(my_df3)
+
+
+# some useful commands
+dim(my_df3)
+
+length(my_vector)
+
+
+# Subsetting data frames
+# ----------------------
+
+# subsetting vector
+my_vector2
+my_vector2[4]
+my_vector2[4:5]
+
+# subsetting data frame
+my_df[2, 3]  # extract one element
+my_df[2, ]   # extract whole row
+my_df[, 2]   # extract whole column
+
+str(my_df)
+
+# extract column from data frame (two options)
+my_df$V4
+my_df[, 4]
+
+
+# Lists
+# -----
+
+# vector
+abc <- c(1, 2, 5, 1)
+abc
+
+# list
+my_list <- list(1, 2, 5, "cat", "dog", TRUE, FALSE)
+my_list
+
+str(my_list)
+
+length(my_list)
+
+
+
+
+source("https://bioconductor.org/biocLite.R")
+biocLite("flowCore")
+install.packages("ggplot2")
+
+
+
+
+
+####################
+# Plotting example #
+####################
+
+install.packages("ggplot2")
+
+library(ggplot2)
+
+?plot
+
+x <- 1:10
+
+plot(x)
+
+
+# ---------
+# load data
+# ---------
+
+library(flowCore)
+data <- read.FCS("example.fcs", 
+                 transformation = FALSE, 
+                 truncate_max_range = FALSE)
+
+data <- exprs(data)
+
+head(data)
+
+
+# --------------
+# transform data
+# --------------
+
+?asinh
+
+cofactor <- 5
+
+data <- asinh(data / cofactor)
+
+head(data)
+
+summary(data)
+
+
+# ---------------------------------
+# simple plot using "base plotting"
+# ---------------------------------
+
+colnames(data)
+
+plot(data[, c(3, 9)])
+
+plot(data[, c(3, 9)], pch = ".")
+
+
+
+plot(data[, c(3, 9)], pch = ".", main = "CD4 vs. CD3")
+
+?plot
+
+
+
+
+# -------------------------
+# Now using ggplot2
+# -------------------------
+
+
+
+str(data)
+
+# ggplot2 requires data to be a data frame (not matrix)
+
+df_plot <- as.data.frame(data[, c(3, 9)])
+
+str(df_plot)
+head(df_plot)
+
+colnames(df_plot)
+
+colnames(df_plot) <- c("CD3", "CD4")
+
+colnames(df_plot)
+head(df_plot)
+
+
+# create plot
+
+ggplot(df_plot, aes(x = CD3, y = CD4)) + 
+  geom_point()
+
+
+# Various plotting options
+
+ggplot(df_plot, aes(x = CD3, y = CD4)) + 
+  geom_point(color = "blue")
+
+ggplot(df_plot, aes(x = CD3, y = CD4)) + 
+  geom_point(color = "blue", alpha = 0.25)
+
+ggplot(df_plot, aes(x = CD3, y = CD4)) + 
+  geom_point(color = "blue", alpha = 0.25) + 
+  theme_bw()
+
+ggplot(df_plot, aes(x = CD3, y = CD4)) + 
+  geom_point(color = "blue", alpha = 0.25) + 
+  xlab("CD3 expression (transformed)") + 
+  ylab("CD4 expression (transformed)") + 
+  ggtitle("CD4 vs. CD3") + 
+  theme_bw()
+  
+ggplot(df_plot, aes(x = CD3, y = CD4)) + 
+  geom_point(color = "blue", alpha = 0.25) + 
+  xlim(c(-1.75, 5)) + 
+  ylim(c(-1.25, 5.75)) + 
+  xlab("CD3 expression (transformed)") + 
+  ylab("CD4 expression (transformed)") + 
+  ggtitle("CD4 vs. CD3") + 
+  theme_bw()
+
+
+# Add contour lines with a second "geom"
+
+ggplot(df_plot, aes(x = CD3, y = CD4)) + 
+  geom_point(color = "blue", alpha = 0.25) + 
+  geom_density2d(color = "gray30") + 
+  xlim(c(-1.75, 5)) + 
+  ylim(c(-1.25, 5.75)) + 
+  xlab("CD3 expression (transformed)") + 
+  ylab("CD4 expression (transformed)") + 
+  ggtitle("CD4 vs. CD3") + 
+  theme_bw()
+
+
+# Save your plot
+
+getwd()
+
+?ggsave
+
+ggsave("my_plot.pdf", width = 7, height = 7)
+
+ggsave("my_plot.png", width = 7, height = 7)
+
+
+# Assign plot to a variable name
+
+p <- ggplot(df_plot, aes(x = CD3, y = CD4)) + 
+  geom_point(color = "blue", alpha = 0.25) + 
+  geom_density2d(color = "gray30") + 
+  xlim(c(-1.75, 5)) + 
+  ylim(c(-1.25, 5.75)) + 
+  xlab("CD3 expression (transformed)") + 
+  ylab("CD4 expression (transformed)") + 
+  ggtitle("CD4 vs. CD3") + 
+  theme_bw()
+
+p
+
+
+
+
+### master_script session
+setwd("~/projects/cytof_course_uzh/")
+list.files()
+
+library(readxl)
+md <- read_excel("metadata.xlsx")
+md
+
+md$filename
+
+library(flowCore)
+fs <- read.flowSet(files=md$filename,
+                   path="BodenmillerEtAl2012_BCRXL/")
+fs
+class(fs)
+sampleNames(fs)
+colnames(fs)
+fsApply(fs, nrow)
+
+ff <- fs[[10]]
+class(ff)
+
+e <- exprs(ff)
+class(e)
+dim(e)
+
+# ee <- exprs(fs)  - this doesn't work
+
+md$ncells <- fsApply(fs, nrow)
+md
+class(md)
+
+library(ggplot2)
+ggplot(md, aes(x = shortname, y = ncells)) +
+  geom_bar(stat = "identity") +
+  theme(axis.text.x = element_text(angle=90, 
+                                   hjust=1, vjust=.5))
+
+
+d <- fsApply(fs, exprs)
+class(d)
+dim(d)
+sum(md$ncells)
+md
+
+samp <- rep(md$shortname, md$ncells)
+length(samp)
+class(samp)
+head(samp)
+tail(samp)
+
+head(d,2)
+dtrans <- asinh(d/5)
+head(dtrans,2)
+
+marker_cols <- c(3:4,9,11,12,14,21,29,31,33)
+marker_cols
+df <- data.frame(dtrans[,marker_cols],
+                 samp=samp)
+head(df,2)
+library(dplyr)
+nrow(df)
+df %>% nrow()
+
+length(colnames(df))
+df %>% colnames %>% length
+
+medians_se <- df %>%
+  group_by(samp) %>%
+  summarize_each(funs(median))
+
+class(medians_se)
+dim(medians_se)
+medians_se
+
+md$ncells[1]
+median(dtrans[1:2838,3])
+head(df,2)
+head(dtrans,2)
+
+df_cp <- data.frame(medians_se[,-1])
+rownames(df_cp) <- medians_se$samp
+df_cp
+
+library(pheatmap)
+pheatmap(df_cp[,-2])
+colnames(df_cp)
+
+library(limma)
+plotMDS(t(df_cp))
+
+
