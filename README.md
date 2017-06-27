@@ -40,7 +40,7 @@ You will also receive a link to an intermediate R course from DataCamp, which te
 
 ### Data Carpentry and Software Carpentry
 
-If you would like to continue to develop your data analysis skills in R, we highly recommend looking at some of the free lesson materials available from [Data Carpentry](http://www.datacarpentry.org/) and [Software Carpentry](https://software-carpentry.org/), or signing up for a future Data Carpentry or Software Carpentry workshop (these are held regularly at locations throughout the world).
+If you would like to continue to develop your data analysis skills in R, we highly recommend looking at some of the free lesson materials available from [Data Carpentry](http://www.datacarpentry.org/) and [Software Carpentry](https://software-carpentry.org/), or signing up for a future Data Carpentry or Software Carpentry workshop near you (these are held regularly at locations throughout the world).
 
 For example, the [Data Carpentry: R for data analysis and visualization of ecological data](http://www.datacarpentry.org/R-ecology-lesson/) lesson, or the [Software Carpentry: Programming with R](http://swcarpentry.github.io/r-novice-inflammation/) lesson, provide excellent introductions.
 
@@ -92,7 +92,7 @@ At the end of the workshop, we will provide the full interactive R code scripts 
 
 We will use the following data files for the interactive exercises during the sessions. Please download them and save them in a local folder on your computer (click on them, then click the "Download" button on the next page).
 
-The .fcs files are sourced from a data set consisting of peripheral blood mononuclear cells (PBMCs) stimulated with B-cell receptor / Fc receptor cross-linker (BCR-XL), and unstimulated reference cells (16 samples from 8 healthy donors; 8 stimulated vs. 8 unstimulated), from a larger CyTOF experiment comparing a number of stimulation conditions. The data set was initially created and published by [Bodenmiller et al. (2012), *Nature Biotechnology*](https://www.ncbi.nlm.nih.gov/pubmed/22902532), and re-analyzed by [Bruggner et al. (2014), *PNAS*](https://www.ncbi.nlm.nih.gov/pubmed/24979804).
+The .fcs files are sourced from a data set consisting of peripheral blood mononuclear cells (PBMCs) stimulated with B-cell receptor / Fc receptor cross-linker (BCR-XL), and unstimulated reference cells (total of 16 samples from 8 healthy donors; 8 stimulated vs. 8 unstimulated), from a larger CyTOF experiment comparing a number of stimulation conditions. The data set was initially created and published by [Bodenmiller et al. (2012), *Nature Biotechnology*](https://www.ncbi.nlm.nih.gov/pubmed/22902532), and re-analyzed by [Bruggner et al. (2014), *PNAS*](https://www.ncbi.nlm.nih.gov/pubmed/24979804).
 
 - [example.fcs](data/example.fcs)
 
@@ -104,7 +104,9 @@ The .fcs files are sourced from a data set consisting of peripheral blood mononu
 
 ## Code of conduct
 
-Participation in this workshop assumes acceptance of our code of conduct. In short: please be professional and respectful towards others at all times; we want this to be a welcoming learning environment for all. If there are any problems, please let one of the instructors know.
+Participation in this workshop assumes acceptance of our code of conduct.
+
+In short: please be professional and respectful towards others at all times. We want this to be a welcoming learning environment for all. If there are any problems, please let one of the instructors know.
 
 For a longer version, we refer to [Laurent Gatto's lab code of conduct](https://lgatto.github.io/cpu-coc/) (Computational Proteomics Unit, University of Cambridge, UK).
 
