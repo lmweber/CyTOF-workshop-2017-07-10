@@ -8,7 +8,7 @@ This repository contains information and teaching materials for the R data analy
 
 The workshop is organized by the [Mass Cytometry Facility](http://www.cytometry.uzh.ch/en/mcf.html) at the University of Zurich, Switzerland. This is an intensive 3-day workshop aimed at introducing mass cytometry (CyTOF) experimental procedures and computational data analysis for users and collaborators of the Mass Cytometry Facility. Additional details are available on the [Mass Cytometry Facility website](http://www.cytometry.uzh.ch/en/mcf/training.html).
 
-**Location:** On Monday morning, we will meet in building **Y11**, room **J-05** (UZH Irchel campus) for an introduction. The R data analysis sessions (Monday and Tuesday) will be held in building **Y01**, computer room **F-08**. A map of the UZH Irchel campus showing the locations of the buildings is available [here](Irchel_campus_map.png) (click on the "Download" button to zoom in).
+**Location:** On Monday morning, we will meet in building **Y11**, room **J-05** (UZH Irchel campus) for an introduction. The R data analysis sessions (Monday and Tuesday) will also be held in this room. A map of the UZH Irchel campus showing the locations of the buildings is available [here](Irchel_campus_map.png) (click on the "Download" button to zoom in).
 
 **Schedule:** The overall schedule for the workshop is available on the [Mass Cytometry Facility website](http://www.cytometry.uzh.ch/en/mcf/training.html). The R data analysis sessions ("Data analysis in scripted environment") will be repeated on days 1 and 2 for each group of participants.
 
