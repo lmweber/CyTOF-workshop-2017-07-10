@@ -55,13 +55,13 @@ Overall structure: 1 day, 4x 1.5 hour blocks
 
 | Time          | Content                                       |
 |---------------|-----------------------------------------------|
-|  9:00 - 10:30 | Introduction                                  |
+|  9:00 - 10:30 | Introduction; Overview of CyTOF workflow in R |
 |               | *(short break)*                               |
-| 11:00 - 12:30 | R programming                                 |
+| 11:00 - 12:30 | R programming and plotting                    |
 |               | *(lunch break)*                               |
-| 13:30 - 15:00 | CyTOF workflows and plotting in R             |
+| 13:30 - 15:00 | R programming and plotting (continued)        |
 |               | *(short break)*                               |
-| 15:30 - 17:00 | CyTOF workflows and plotting in R (continued) |
+| 15:30 - 17:00 | CyTOF workflow: interactive exercises         |
 
 
 
@@ -69,7 +69,7 @@ Overall structure: 1 day, 4x 1.5 hour blocks
 
 We will use an Etherpad for discussions and questions during the workshop. You can add comments for the instructors or other learners at any time during the workshop.
 
-The Etherpad is available here: [https://beta.etherpad.org/p/VaaeWno43s](https://beta.etherpad.org/p/gaNC03Xroh)
+The Etherpad is available here: [https://beta.etherpad.org/p/gaNC03Xroh](https://beta.etherpad.org/p/gaNC03Xroh)
 
 Note that this Etherpad will expire after a few weeks, since we are using a free public instance.
 
