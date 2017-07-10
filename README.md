@@ -81,7 +81,7 @@ Copies of the Etherpad notes from both days will be saved on this website in the
 
 ## R code scripts
 
-The R code for the CyTOF workflow example shown during the first session is available directly within the publication:
+The R code for the CyTOF workflow shown during the first session is available directly within the publication:
 
 - Nowicka et al. (2017), *CyTOF workflow: differential discovery in high-throughput high-dimensional cytometry datasets*, F1000Research; [available here](https://f1000research.com/articles/6-748/v1).
 
