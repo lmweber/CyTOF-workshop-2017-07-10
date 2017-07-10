@@ -79,12 +79,15 @@ Copies of the Etherpad notes from both days will be saved on this website in the
 
 
 
-## R code scripts and slides
+## R code scripts
 
-At the end of the workshop, we will provide the full interactive R code scripts from the examples shown during each session, as well as the presentation slides. The R scripts contain all the main commands shown during the demonstrations and workflow, including additional comments to explain each step.
+The R code for the CyTOF workflow example shown during the first session is available directly within the publication:
+
+- Nowicka et al. (2017), *CyTOF workflow: differential discovery in high-throughput high-dimensional cytometry datasets*, F1000Research; [available here](https://f1000research.com/articles/6-748/v1).
+
+At the end of the workshop, we will also provide interactive R code scripts from all the examples shown during each session. The scripts contain all the main commands shown, along with additional comments to explain each step. The scripts will be saved in the following folder:
 
 - [scripts](scripts/)
-- [slides](slides/)
 
 
 

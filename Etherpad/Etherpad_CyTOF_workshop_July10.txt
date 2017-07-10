@@ -1,0 +1,96 @@
+CyTOF workshop: R data analysis sessions
+10-12 July 2017, University of Zurich, Switzerland
+
+
+Course notes: https://github.com/lmweber/CyTOF-workshop-2017-07-10
+
+Some R humour: R is like cooking
+    https://twitter.com/SonjaEisenbeiss/status/884380543697244163
+
+The data carpentry materials that Lukas showed: 
+    http://www.datacarpentry.org/R-ecology-lesson/
+    (e.g., starting with data) http://www.datacarpentry.org/R-ecology-lesson/02-starting-with-data.html
+
+Workflow paper: 
+    https://f1000research.com/articles/6-748/v1 (paper)
+    https://github.com/gosianowkflow/blob/master/vignettes/cytofWorkflow.Rmd (R markdown file with text + code)
+
+
+
+Exercise:
+1. Read in the "example.fcs" file
+2. Extract the 'exprs' (ion counts) into a matrix
+3. Remove the columns that are not of interest (i.e.,  
+   (Time, Cell_length, BC1-BC7, DNA-1, DNA-2)
+   alternatively, *subset* to markers that are of interest
+4. Transform the data in this matrix using asinh(x/5)
+5. Make a histogram of the CD3 signal across all cells
+6. Make a bivariate plot of CD3 and CD4
+7. From the 2739 cells, create a 2D tSNE projection 
+   (input 2739 rows x ~20 columns --> output: 2739x2 matrix)
+   
+   library(Rtsne)
+   x_tsne <- Rtsne(x, verbose=TRUE, pca=FALSE)  # 'x' is the input matrix
+   x_tsne$Y       # x_tsne$Y is the 2-column output matrix 
+   
+8. Plot the tSNE projection (scatter plot)
+9. Plot the tSNE projection with dots coloured 
+   according to CD3 (scatter plot with each dot's
+   colour from a colour scale)
+10. Add the tSNE projection to your flowFrame/flowSet 
+   object and write it out in an FCS file.
+   Open the FCS file in FlowJo/Cytobank to verify that it
+   worked.
+
+
+
+
+Cut and paste this into R to install all the necessary packages:
+---
+source("https://bioconductor.org/biocLite.R")
+
+biocLite( c("captioner","readxl","flowCore",
+            "matrixStats","ggplot2","reshape2",
+            "dplyr","limma","ggrepel","RColorBrewer",
+            "pheatmap","FlowSOM","ConsensusClusterPlus",
+            "Rtsne","cowplot","lme4","multcomp"))
+---
+
+
+backslash \
+square brackets [ ]
+
+
+
+
+
+
+(1) What you would like to get out of today’s data analysis sessions 
+Hi, I would like to go into the basics of R and how to apply it to the analysis of our data
+
+Hi, I'd like to also learn about the basics of R and how to apply it to high dimensional data
+<i would like to learn the basics of R
+I would like to get an idea of how I might use R to analyse my own data.
+I would like to learn this software, its uses and how beneficial it could be in analysing the CyTOF data.
+I would like to learn how to make beautiful plots
+I would like to consolidate the things that I learned during the previous workshop.
+I would like to learn how to analyse my data with R
+I would appreciate to understand the basics of R, and be able to memo
+rize the different basic functions; and hopefully proceed to an intermediate level.
+
+
+
+(2) Any examples of types of data analyses (in R) that you would like to learn about 
+I would like to improve my skills in R and high dimensional analysis
+jow to plot multiple  parameters
+
+Expand my workflow beyond Cytobank and Excel,
+
+I would like to learn how to compare unknowns to a cohort of "normal" samples.
+I would like to get comfortable using  R and have a basic understanding in order to analize myy own data
+I would like to learn techniques to help me visualize data and compare data within a small patient population.
+I would like to learn more about dimensionality reduction.
+II would like to learn more about two dimensional plotting, and dataanalysis of cytof data.
+
+I would like to learn how to use R for  analysis of Cytof and High dimensional FC data
+
